@@ -1,0 +1,259 @@
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url(/assets/fonts/MyriadPro-Regular.woff) format('woff'), url(/assets/fonts/MyriadPro-Regular.ttf) format('truetype');
+}
+
+* {
+    font-family: "Myriad Pro";
+}
+
+html { overflow-y: hidden; }
+
+.frame-tool,
+.pallete__option,
+.list-of-layers
+{
+    overflow-y: scroll;
+    height: 300px;
+}
+
+.frame-tool::-webkit-scrollbar,
+.pallete__option::-webkit-scrollbar,
+.list-of-layers::-webkit-scrollbar
+{
+ width: 6px;
+}
+
+.frame-tool::-webkit-scrollbar-thumb,
+.pallete__option::-webkit-scrollbar-thumb,
+.list-of-layers::-webkit-scrollbar-thumb
+{
+ background-color: #777;
+}
+
+.pallete__canvas-area > canvas {
+    width: 200px;
+    height: 200px;
+    border: 1px solid gray;
+    margin: 10px 5px; 
+}
+
+
+.pallete {
+    display: flex;
+    flex-direction: row;
+}
+
+.pallete__tools {
+    margin-top: 25px;
+}
+
+.pallete__canvas-area {
+    margin-top: 20px;
+}
+
+.pallete__option i {
+    margin-right: 15px;
+}
+
+.pallete__option button,
+.pallete__colors-option button {
+    display: flex;
+    border: 0;
+    background-color: white;
+    height: 50px;
+    width: 200px;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
+.pallete__colors-option,
+.pallete__option,
+.pallete__color-picker {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+    max-width: 250px;
+}
+
+.pallete__colors-option {
+    margin-top: 5px;
+}
+
+.pallete__colors-option div {
+    border: 1 solid red;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.pallete__color-picker {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pallete__color-picker div {
+    height: 40px;
+    width: 40px;
+    margin: 10px 10px;
+}
+
+.pallete__color-canvas-picker {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.frame-tools__add-button,
+.frame-tool__trash-button,
+.frame-tool__copy-button {
+    margin-top: 10px;
+    border: 0;
+    background-color: white;
+}
+
+.frame-tool {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: 25px 15px 5px 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);  
+}
+
+.main-canvas-area__frame {
+    margin: 25px 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);  
+}
+
+.animation-player__image {
+    background-color: white;
+    margin-top: 25px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.animation-player__FPS {
+    margin-top: 20px;
+}
+
+.animation-player {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-canvas-buttons {
+    display: flex;
+    margin: 0px 25px;
+}
+
+.main-canvas-buttons div {
+    height: 50px;
+    width: 50px;
+}
+
+.animation-player_start-animation {
+    display: flex;
+    justify-content: center;
+}
+
+.pallete__colors-option__current-color,
+.pallete__colors-option__prev-color{
+    border: 1px solid rgba(0,0,0,0.5);
+}
+
+.pallete__colors-option__current-layer {
+    display: flex;
+}
+
+.pallete__colors-option__text,
+.fa-layer-group {
+    margin: 10px 0 10px 15px;
+}
+
+.frame-menu__layer-option {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: 200px;
+    margin-left: 15px;
+    height: 100px;
+}
+
+.pallete__colors-option__x input,
+.pallete__colors-option__y input{
+    width: 100px;
+}
+
+.canvas-size {
+    display: flex;
+}
+
+.canvas-size div{
+    height: 30px;
+    margin: 5px 10px;
+}
+
+.pallete__layers-option {
+    display: flex;
+}
+
+.pallete__layers-option div {
+    margin-top: 20px;
+    height: 50px;
+    width: 50px;
+}
+
+.pallete__layers-option button {
+    outline: none;
+    border: none;
+    background-color: white;
+    margin: 0 10px;
+}
+
+.layer {
+    outline: none;
+    border: none;
+    background-color: white;
+}
+
+.layer button {
+    outline: none;
+    border: none;
+    background-color: white;
+}
+
+.list-of-layers {
+    display: flex;
+    flex-direction: column;
+}
+
+.fa-trash-alt {
+    margin: 10px 0 0 120px;
+}
+
+.block {
+    /* display: none; */
+    position: absolute;
+    width: 40px;
+    left: 100px;
+}
+
+.pallete__tools__paint-brush:hover .block,
+.pallete__tools__paint-bucket:hover .block,
+.pallete__tools__choose-color:hover .block,
+.pallete__tools__eraser:hover .block,
+.pallete__tools__highlighter:hover .block,
+.pallete__tools__color-picker:hover .block,
+.pallete__tools__rectangle:hover .block,
+.pallete__tools__line:hover .block,
+.pallete__tools__mirror-pen:hover .block,
+.pallete__tools__paint-all-pixels:hover .block {
+    display: block;
+}
+
+.pallete__colors-option {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
