@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="./normalize.css">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="src/css/normalize.css">
+    <link rel="stylesheet" href="src/css/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
@@ -17,7 +17,8 @@
         <div class="pallete">
             <div class="pallete__tools">
                 <div class="pallete__option">
-                    <button class="pallete__tools__paint-brush" value="Brush ctrl+Z"><i class="fas fa-paint-brush"></i>Brush</button>
+                    <button class="pallete__tools__paint-brush" value="Brush ctrl+Z"><i
+                            class="fas fa-paint-brush"></i>Brush</button>
                     <button class="pallete__tools__paint-bucket"><i class="fas fa-fill-drip"></i>Paint bucket</button>
                     <button class="pallete__tools__choose-color"><i class="fas fa-eye-dropper"></i>Choose color</button>
                     <button class="pallete__tools__eraser"><i class="fas fa-eraser"></i>Eraser</button>
@@ -28,7 +29,8 @@
                     <button class="pallete__tools__line"><i class="fas fa-grip-lines"></i>Stroke Line</button>
                     <button class="pallete__tools__paint-all-pixels"><i class="fas fa-fill-drip"></i>Paint all
                         Pixels</button>
-                    <button class="pallete__tools__mirror-pen"><i class="fas fa-grip-lines-vertical"></i>Mirror Pen</button>
+                    <button class="pallete__tools__mirror-pen"><i class="fas fa-grip-lines-vertical"></i>Mirror
+                        Pen</button>
                 </div>
                 <div class="pallete__colors-option">
                     <button class="pallete__colors-option__current">
@@ -64,12 +66,6 @@
                         <button class="pallete__layers-option__delete-layer">
                             <i class="fas fa-trash"></i>
                         </button>
-                        <button class="pallete__layers-option__layer-up">
-                            <i class="fas fa-arrow-up"></i>
-                        </button>
-                        <button class="pallete__layers-option__layer-down">
-                            <i class="fas fa-arrow-down"></i>
-                        </button>
                     </div>
                     <div class="list-of-layers"></div>
                 </div>
@@ -77,29 +73,39 @@
             <div class="main-canvas-area">
                 <canvas class="main-canvas-area__frame" width="400" height="400" style="top:10%;left:10%;"></canvas>
                 <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
+            </div>
+            <div class="animation-block">
+                <div class="animation-player">
+                    <img class="animation-player__image" src="./assets/images/play.png" height="200" width="340"
+                        alt="Player">
+                    <div class="animation-player_start-animation">
+                        <div class="animation-player__FPS">
+                            <input type="range" id="scoreValue" name="volume" min="0" max="24">
+                            <label for="volume">FPS</label>
+                        </div>
+                    </div>
+                </div>
                 <div class="main-canvas-buttons">
-                    <div class="main-canvas-buttons__download-png">
-                        <a href="#" id="downloader" download="image.png">Download</a>
-                        <canvas id="canvas"></canvas>
+                    <div class="main-canvas-buttons__download">
+                        <div class="main-canvas-buttons__title">Download Canvas</div>
+                        <div class="download__buttons">
+                            <button class="main-canvas-buttons__download-png">
+                                <a href="#" id="downloader" download="image.png"><i class="fas fa-download"></i></a>
+                                <canvas id="canvas"></canvas>
+                            </button>
+                        </div>
                     </div>
-                    <div class="canvas-size">
-                        <div>Transform Canvas:</div>
-                        <div class="canvas-size__5">5px</div>
-                        <div class="canvas-size__10">10px</div>
-                        <div class="canvas-size__20">20</div>
-                    </div>
-                </div>
-            </div>
-            <div class="animation-player">
-                <img class="animation-player__image" src="./assets/images/play.png" height="200" width="340"
-                    alt="Player">
-                <div class="animation-player_start-animation">
-                    <div class="animation-player__FPS">
-                        <input type="range" id="scoreValue" name="volume" min="0" max="24">
-                        <label for="volume">FPS</label>
+                    <div class="main-canvas-buttons__canvas-size">
+                        <div class="main-canvas-buttons__title">Transform Canvas</div>
+                        <div class="canvas-size__buttons">
+                            <button class="canvas-size__5">5</button>
+                            <button class="canvas-size__10">10</button>
+                            <button class="canvas-size__20">20</button>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </main>
     <script type="module" src="./src/index.mjs"></script>
