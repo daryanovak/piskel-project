@@ -33,9 +33,7 @@ export function PaintAllPixelsComponent() {
     }
 
     this.onMouseUp = function (x, y) {
-        self.applyState();
-        self.isMouseDown = false;
-        return true;
+        return false;
     }
 
     this.onMouseDown = function (x, y) {
@@ -47,8 +45,8 @@ export function PaintAllPixelsComponent() {
     }
 
     this.onClick = function (x, y) {
-        console.log("youuu");
         self.tryDrawPoint();
+        self.applyState();
         return true;
     }
 
@@ -66,7 +64,6 @@ export function PaintAllPixelsComponent() {
             for (let j = 0; j < self.myFrameData[i].length; j++) {
                     self.myFrameData[i][j][2] = globalState.currentBrushColor;
                     self.myFrameData[i][j][3] = true;
-                    console.log(self.myFrameData[i][j]);
             }
         }
     }

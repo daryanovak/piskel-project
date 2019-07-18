@@ -1,7 +1,7 @@
 import { globalState } from '../piskelState.mjs'
 import {renderCanvas} from '../eventHandlers.mjs'
+import { createLayerDOM } from '../layers/addNewLayer.mjs'
 
-let count = 0;
 
 export function removeFrame() {
     let canvas = document.getElementsByClassName('main-canvas-area__frame')[0];
@@ -11,13 +11,19 @@ export function removeFrame() {
     let element = event.target.parentNode.parentNode;
     let index = element.childNodes[0].id;
     var message = confirm("Do you want to delete this frame?");
+    alert(index);
 
     if (message) {
-        count++;
-        globalState.removeCurrentFrame(index - count);
-        ctx.clearRect(0, 0, width, height);
         globalState.removeCurrentFrame(index);
-        renderCanvas();
+        let layerList = document.getElementsByClassName("list-of-layers")[0];
+        layerList.innerHTML = '';
+        ctx.clearRect(0, 0, width, height);
+        if(!globalState.empty()) {
+            renderCanvas();
+            for(let key in globalState.getCurrentFrame().frameData) {
+                createLayerDOM(key);
+              }
+        }
         element.style.display = 'none';
     }
 

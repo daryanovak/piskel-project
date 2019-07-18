@@ -133,7 +133,7 @@ html { overflow-y: hidden; }
 }
 
 .animation-player__FPS {
-    margin-top: 20px;
+    margin:  20px 0 0 10px;
 }
 
 .animation-player {
@@ -143,12 +143,8 @@ html { overflow-y: hidden; }
 
 .main-canvas-buttons {
     display: flex;
-    margin: 0px 25px;
-}
-
-.main-canvas-buttons div {
-    height: 50px;
-    width: 50px;
+    text-decoration: none;
+    margin-top: 40px;
 }
 
 .animation-player_start-animation {
@@ -184,13 +180,30 @@ html { overflow-y: hidden; }
     width: 100px;
 }
 
-.canvas-size {
+.main-canvas-buttons__canvas-size,
+.main-canvas-buttons__download {
     display: flex;
+    flex-direction: column;
+    margin: 20px 20px 0 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: 160px;
+    height: 95px;
 }
 
-.canvas-size div{
+.main-canvas-buttons__title {
+    padding: 10px;
+}
+
+.canvas-size__buttons {
+    display: flex;
+    flex-direction: row;
+}
+.canvas-size__buttons button,
+.download__buttons button {
     height: 30px;
-    margin: 5px 10px;
+    width: 30px;
+    margin: 0 10px;
+    padding: 0;
 }
 
 .pallete__layers-option {
@@ -204,9 +217,9 @@ html { overflow-y: hidden; }
 }
 
 .pallete__layers-option button {
-    outline: none;
+    /* outline: none;
     border: none;
-    background-color: white;
+    background-color: white; */
     margin: 0 10px;
 }
 
@@ -232,7 +245,6 @@ html { overflow-y: hidden; }
 }
 
 .block {
-    /* display: none; */
     position: absolute;
     width: 40px;
     left: 100px;
@@ -257,3 +269,11 @@ html { overflow-y: hidden; }
     flex-direction: column;
 }
 
+.main-canvas-buttons__download-png a{
+    text-decoration: none;
+    color: black;
+}
+
+#canvas {
+    display: none;
+}

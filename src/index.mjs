@@ -18,17 +18,30 @@ import { removeLayer } from './layers/removeLayer.mjs'
 import {onMouseDown, onMouseMove, onMouseOut, onClick, onMouseUp } from './eventHandlers.mjs'
 import {KeyboardEvent } from './helpers/KeyboardEvent.mjs'
 import { VerticalMirrorPenComponent } from './tools/verticalMirrorPen.mjs';
+import { createLayerDOM } from './layers/addNewLayer.mjs'
 
 const addFrameButton = document.getElementsByClassName('frame-tools__add-button')[0];
 const animateButton = document.getElementsByClassName('animation-player')[0];
 const canvas = document.getElementsByClassName('main-canvas-area__frame')[0];
-const canvasSizeMenu = document.getElementsByClassName('canvas-size')[0];
+const canvasSizeMenu = document.getElementsByClassName('main-canvas-buttons__canvas-size')[0];
 const menu = document.getElementsByClassName('pallete__option')[0];
 const mainCanvasMenu = document.getElementsByClassName('main-canvas-buttons')[0];
 const layerMenu = document.getElementsByClassName('pallete__layers-option')[0];
 const download = document.getElementById('downloader');
 
+const frameTool = document.getElementsByClassName('frame-tool')[0];
 
+frameTool.addEventListener('click', (e) => {
+  if (e.target.classList.contains('frame-tool__frames')) {
+    let layerList = document.getElementsByClassName("list-of-layers")[0];
+    layerList.innerHTML = '';
+    globalState.setCurrentFrame(e.target.id);
+    for(let key in globalState.getCurrentFrame().frameData) {
+      createLayerDOM(key);
+    }
+    renderCanvas();
+  }
+});
 
 download.addEventListener('click', downloadFunc);
 

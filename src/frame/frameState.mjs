@@ -3,12 +3,18 @@ export function FrameState(id, frameCanvas, frameData, layerId) {
   this.frameCanvas = frameCanvas;
   this.currentLayerId = layerId;
   this.frameData = { [layerId]: frameData };
+  this.maxLayerId = layerId;
   let self = this;
+
+  this.getNextLayerId = function() {
+    return self.maxLayerId + 1;
+  }
 
   this.addLayer = function (id, layerData) {
     self.moveLayerToBottom(self.currentLayerId);
     self.frameData[id] = layerData;
     self.currentLayerId = id;
+    self.maxLayerId = Math.max(self.maxLayerId, id);
   }
 
   this.removeLayer = function (id) {
@@ -67,10 +73,5 @@ export function FrameState(id, frameCanvas, frameData, layerId) {
       self.moveLayerToTop(id);
       self.currentLayerId = id;
     }
-
-    //при нажатии на сам слой globalstate. getfram().setCurrent(id)
-    //при нажатии на плюс this.addLayer (layerData generate id)
-    // remove с id dom
-
     return this;
   }

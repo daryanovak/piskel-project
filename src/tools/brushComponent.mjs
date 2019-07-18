@@ -9,6 +9,9 @@ export function BrushComponent() {
 
     this.reset = function () {
         self.myFrameData = [];
+        if (globalState.empty()) {
+            return;
+        }
         self.frameData = globalState.getCurrentFrame().getCurrentLayer();
         for (let i = 0; i < self.frameData.length; i++) {
             let frameRow = [];

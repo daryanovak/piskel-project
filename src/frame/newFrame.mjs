@@ -16,6 +16,10 @@ export function newFrame() {
     canvas.id = frameNumber;
     canvas.style.height = "210px"
     canvas.style.width = "300px";
+    let layerList = document.getElementsByClassName("list-of-layers")[0];
+
+    layerList.innerHTML = '';
+
 
     let mainCanvas = document.getElementsByClassName("main-canvas-area__frame")[0];
     let ctx = mainCanvas.getContext("2d");
@@ -38,10 +42,9 @@ export function newFrame() {
     layer.id = 0;
     layer.appendChild(layerTrash);
     
-    let layerList = document.getElementsByClassName("list-of-layers")[0];
     layerList.appendChild(layer);
 
-    function a (){
+    function a (){ ///Todo
         globalState.getCurrentFrame().setCurrentLayer(0);
         if(globalState.currentDrawComponent)  {
             globalState.currentDrawComponent.reset();
@@ -49,11 +52,17 @@ export function newFrame() {
         renderCanvas();
         
     }
+    
     function deleteLayer(e){
+        if(Object.keys(globalState.getCurrentFrame().frameData).length <= 1) {
+            return;
+        }
         globalState.getCurrentFrame().removeLayer(e.target.id);
         if(globalState.currentDrawComponent)  {
             globalState.currentDrawComponent.reset();
         }    
+        e.target.parentElement.remove();
+        renderCanvas();
     }
     layerTrash.addEventListener('click', deleteLayer )
     layer.addEventListener('click', a );

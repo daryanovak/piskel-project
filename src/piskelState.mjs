@@ -8,12 +8,16 @@ function PiskelState() {
     this.canvasSize = 400;
     this.canvasPixelSize = 10;
     this.framesArray = [];
-    this.currentFrame = 0;
+    this.currentFrame = -1;
     this.currentBrushColor = "rgba(255,255,255,1)";
     this.currentDrawComponent = null;
 
+    this.empty = function() {
+        return self.currentFrame == -1;
+    }
+
     this.getCurrentBrushColor = function () {
-        return this.currentBrushColor;
+        return self.currentBrushColor;
     }
 
     this.setCurrentBrushColor = function (color) {
