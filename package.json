@@ -16,8 +16,8 @@
     "start": "webpack --watch",
     "dev": "webpack-dev-server --mode development --watch",
     "build": "webpack --mode production",
-    "deploy": "gh-pages -d build",
-    "predeploy": "npm run build"
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run dist"
   },
   "keywords": [],
   "author": "Darya Novak",
